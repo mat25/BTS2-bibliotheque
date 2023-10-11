@@ -1,8 +1,8 @@
 <?php
 
-namespace App\tests;
+namespace App\tests\Unit;
 
-use App\Emprunt;
+use App\Entites\Emprunt;
 use PHPUnit\Framework\TestCase;
 
 class EmpruntTest extends TestCase
