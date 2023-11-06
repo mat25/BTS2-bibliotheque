@@ -13,3 +13,5 @@ class Livre extends Media
 
     }
 }
+
+$livre = new Livre();

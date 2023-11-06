@@ -6,10 +6,10 @@ use App\Entites\Adherent;
 
 $adherent = new Adherent();
 $adherent->setNumeroAdherent();
-$adherent->setNom("Jean");
-$adherent->setPrenom("Mateo");
+$adherent->setNom("Mate");
+$adherent->setPrenom("JEAN");
 $adherent->setEmail("mateoj@gmail.com");
-$adherent->setDateAdhesion("15/10/2023");
+$adherent->setDateAdhesion(new \DateTime());
 
 $entityManager->persist($adherent);
 $entityManager->flush();
