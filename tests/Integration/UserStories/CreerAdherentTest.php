@@ -71,15 +71,72 @@ class CreerAdherentTest extends TestCase
         $this->assertEquals("Matéo",$adherent->getPrenom());
     }
 
+    #[test]
+    public function creerAdherent_ValeursIncorrectes_Exception() {
+        // Arrange
+        $requete = new CreerAdherentRequete("","","");
+        $creerAdherents = new CreerAdherent($this->entityManager,$this->generateur,$this->validateur);
+
+        //
+        $this->expectException(\Exception::class);
+
+        $creerAdherents->execute($requete);
+    }
+
     /**
      * @throws NotSupported
      */
     #[test]
-    public function creerAdherent_ValeursIncorrectes_Exception() {
+    public function creerAdherent_NomIncorrectes_Exception() {
         // Arrange
-        $requete = new CreerAdherentRequete("Matéo","","mateojgmail.com");
+        $requete = new CreerAdherentRequete("Matéo","","mateoj@gmail.com");
         $creerAdherents = new CreerAdherent($this->entityManager,$this->generateur,$this->validateur);
 
+        //
+        $this->expectException(\Exception::class);
+
+        $creerAdherents->execute($requete);
+    }
+
+    /**
+     * @throws NotSupported
+     */
+    #[test]
+    public function creerAdherent_PrenomIncorrectes_Exception() {
+        // Arrange
+        $requete = new CreerAdherentRequete("","JEAN","mateoj@gmail.com");
+        $creerAdherents = new CreerAdherent($this->entityManager,$this->generateur,$this->validateur);
+
+        //
+        $this->expectException(\Exception::class);
+
+        $creerAdherents->execute($requete);
+    }
+
+    /**
+     * @throws NotSupported
+     */
+    #[test]
+    public function creerAdherent_EmailIncorrectes_Exception() {
+        // Arrange
+        $requete = new CreerAdherentRequete("Matéo","JEAN","mateojgmail.com");
+        $creerAdherents = new CreerAdherent($this->entityManager,$this->generateur,$this->validateur);
+
+        //
+        $this->expectException(\Exception::class);
+
+        $creerAdherents->execute($requete);
+    }
+
+    /**
+     * @throws NotSupported
+     */
+    #[test]
+    public function creerAdherent_EmailExisteDeja_Exception() {
+        // Arrange
+        $requete = new CreerAdherentRequete("Matéo","JEAN","mateoj@gmail.com");
+        $creerAdherents = new CreerAdherent($this->entityManager,$this->generateur,$this->validateur);
+        $creerAdherents->execute($requete);
         //
         $this->expectException(\Exception::class);
 
