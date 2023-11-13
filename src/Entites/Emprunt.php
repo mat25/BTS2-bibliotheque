@@ -19,10 +19,7 @@ class Emprunt
 
 
     public function empruntEnCours() : bool {
-        if ($this->dateRetour == null) {
-            return true;
-        }
-        return false;
+         return $this->dateRetour == null;
     }
 
     public function empruntEnRetard() :bool {

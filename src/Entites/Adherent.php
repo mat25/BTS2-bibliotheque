@@ -36,9 +36,9 @@ class Adherent
     /**
      * @param string $numeroAdherent
      */
-    public function setNumeroAdherent(): void
+    public function setNumeroAdherent(string $numero): void
     {
-        $this->numeroAdherent = "AD-".random_int(100000,999999);
+        $this->numeroAdherent = $numero;
     }
 
     /**
@@ -74,10 +74,51 @@ class Adherent
     }
 
 
-    public function setDateAdhesion(string $dateAdhesion): void
+    public function setDateAdhesion(\DateTime $dateAdhesion): void
     {
-        $this->dateAdhesion = \DateTime::createFromFormat("d/m/Y",$dateAdhesion);
+        $this->dateAdhesion = $dateAdhesion;
     }
+
+    /**
+     * @return string
+     */
+    public function getNumeroAdherent(): string
+    {
+        return $this->numeroAdherent;
+    }
+
+    /**
+     * @return string
+     */
+    public function getPrenom(): string
+    {
+        return $this->prenom;
+    }
+
+    /**
+     * @return string
+     */
+    public function getNom(): string
+    {
+        return $this->nom;
+    }
+
+    /**
+     * @return string
+     */
+    public function getEmail(): string
+    {
+        return $this->email;
+    }
+
+    /**
+     * @return \DateTime
+     */
+    public function getDateAdhesion(): \DateTime
+    {
+        return $this->dateAdhesion;
+    }
+
 
 
 }

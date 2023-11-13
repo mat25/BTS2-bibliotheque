@@ -1,6 +1,6 @@
 <?php
 
-namespace Test\Unit;
+namespace Unit\Entites;
 
 use App\Entites\Emprunt;
 use PHPUnit\Framework\TestCase;
