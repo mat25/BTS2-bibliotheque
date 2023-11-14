@@ -7,5 +7,5 @@ require "bootstrap.php";
 $adherent = new Adherent();
 $adherent->setId(1);
 $adherentTest=$entityManager->
-$entityManager->remove(");
+$entityManager->remove("");
 $entityManager->flush();

@@ -2,7 +2,6 @@
 
 namespace App\UserStories\CreerAdherent;
 
-
 use App\Entites\Adherent;
 use App\Services\GenerateurNumeroAdherent;
 use Doctrine\ORM\EntityManagerInterface;
@@ -53,8 +52,8 @@ class CreerAdherent
         $numeroAdherent = $this->numeroAdherent->generer();
 
         // Vérifier que le numéro n'existe pas déjà
-        while ($adherents->findOneBy(["numeroAdherent" => $numeroAdherent])<>null) {
-            $numeroAdherent = $this->numeroAdherent->generer();
+        if ($adherents->findOneBy(["numeroAdherent" => $numeroAdherent])<>null) {
+            throw new \Exception("Le numéro d'adherents existe deja");
         }
 
         // Créer l'adhérent

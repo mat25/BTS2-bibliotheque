@@ -5,7 +5,7 @@ use App\Entites\Adherent;
 
 
 $adherent = new Adherent();
-$adherent->setNumeroAdherent();
+$adherent->setNumeroAdherent("AD-156580");
 $adherent->setNom("Mate");
 $adherent->setPrenom("JEAN");
 $adherent->setEmail("mateoj@gmail.com");
