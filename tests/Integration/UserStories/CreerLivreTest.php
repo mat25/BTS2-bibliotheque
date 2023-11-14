@@ -61,4 +61,62 @@ class CreerLivreTest extends TestCase {
         $this->assertNotNull($livre);
         $this->assertEquals("michel Sardou",$livre->getAuteur());
     }
+    #[test]
+    public function creerLivre_TitreIncorrectes_Exception() {
+        // Arrange
+        $requete = new CreerLivreRequete("","18754fzjgzu","michel Sardou",150,"15/11/1988");
+        $creerLivre = new CreerLivre($this->entityManager,$this->validateur);
+
+        $this->expectException(\Exception::class);
+        $creerLivre->execute($requete);
+    }
+
+    #[test]
+    public function creerLivre_IsbnDejaRenseigner_Exception() {
+        // Arrange
+        $requete = new CreerLivreRequete("test","18754fzjgzu","michel Sardou",150,"15/11/1988");
+        $creerLivre = new CreerLivre($this->entityManager,$this->validateur);
+        $creerLivre->execute($requete);
+
+        $this->expectException(\Exception::class);
+        $creerLivre->execute($requete);
+    }
+
+    #[test]
+    public function creerLivre_isbnIncorrectes_Exception() {
+        // Arrange
+        $requete = new CreerLivreRequete("test","","michel Sardou",150,"15/11/1988");
+        $creerLivre = new CreerLivre($this->entityManager,$this->validateur);
+
+        $this->expectException(\Exception::class);
+        $creerLivre->execute($requete);
+    }
+    #[test]
+    public function creerLivre_auteurIncorrectes_Exception() {
+        // Arrange
+        $requete = new CreerLivreRequete("test","18754fzjgzu","",150,"15/11/1988");
+        $creerLivre = new CreerLivre($this->entityManager,$this->validateur);
+
+        $this->expectException(\Exception::class);
+        $creerLivre->execute($requete);
+    }
+    #[test]
+    public function creerLivre_nbPagesIncorrectes_Exception() {
+        // Arrange
+        $requete = new CreerLivreRequete("test","18754fzjgzu","michel Sardou",0,"15/11/1988");
+        $creerLivre = new CreerLivre($this->entityManager,$this->validateur);
+
+        $this->expectException(\Exception::class);
+        $creerLivre->execute($requete);
+    }
+
+    #[test]
+    public function creerLivre_DateParutionIncorrectes_Exception() {
+        // Arrange
+        $requete = new CreerLivreRequete("test","18754fzjgzu","michel Sardou",0,"");
+        $creerLivre = new CreerLivre($this->entityManager,$this->validateur);
+
+        $this->expectException(\Exception::class);
+        $creerLivre->execute($requete);
+    }
 }
