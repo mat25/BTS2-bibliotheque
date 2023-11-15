@@ -53,9 +53,9 @@ abstract class Media
     /**
      * @param \DateTime $dateCreation
      */
-    public function setDateCreation(string $dateCreation): void
+    public function setDateCreation(): void
     {
-        $this->dateCreation = \DateTime::createFromFormat("d/m/Y",$dateCreation);
+        $this->dateCreation = new \DateTime();
     }
 
     /**

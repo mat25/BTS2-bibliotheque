@@ -30,9 +30,9 @@ class Magazine extends Media
     /**
      * @param \DateTime $datePublication
      */
-    public function setDatePublication(\DateTime $datePublication): void
+    public function setDatePublication(string $datePublication): void
     {
-        $this->datePublication = $datePublication;
+        $this->datePublication = \DateTime::createFromFormat("d/m/Y",$datePublication);
     }
 
     public function setDureeEmprunt(): void

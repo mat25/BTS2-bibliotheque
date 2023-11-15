@@ -110,13 +110,4 @@ class CreerLivreTest extends TestCase {
         $creerLivre->execute($requete);
     }
 
-    #[test]
-    public function creerLivre_DateParutionIncorrectes_Exception() {
-        // Arrange
-        $requete = new CreerLivreRequete("test","18754fzjgzu","michel Sardou",0,"");
-        $creerLivre = new CreerLivre($this->entityManager,$this->validateur);
-
-        $this->expectException(\Exception::class);
-        $creerLivre->execute($requete);
-    }
 }

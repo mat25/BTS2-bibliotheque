@@ -22,25 +22,15 @@ class CreerLivreRequete
         message: "Le nombre de page est obligatoire"
     )]
     public int $nbrPages ;
-    #[Assert\NotBlank (
-        message: "La date de parution est obligatoire"
-    )]
-    public string $dateParution ;
 
-    /**
-     * @param string $titre
-     * @param string $isbn
-     * @param string $auteur
-     * @param int $nbrPages
-     * @param string $dateParution
-     */
-    public function __construct(string $titre, string $isbn, string $auteur, int $nbrPages, string $dateParution)
+
+
+    public function __construct($titre, $isbn, $auteur, $nbrPages)
     {
         $this->titre = $titre;
         $this->isbn = $isbn;
         $this->auteur = $auteur;
         $this->nbrPages = $nbrPages;
-        $this->dateParution = $dateParution;
     }
 
 

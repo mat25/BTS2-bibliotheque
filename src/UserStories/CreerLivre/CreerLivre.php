@@ -48,9 +48,9 @@ class CreerLivre {
         $livre = new Livre();
         $livre->setTitre($requete->titre);
         $livre->setAuteur($requete->auteur);
-        $livre->setDateCreation($requete->dateParution);
         $livre->setIsbn($requete->isbn);
         $livre->setNbrPage($requete->nbrPages);
+        $livre->setDateCreation();
         $livre->setDureeEmprunt();
         $livre->setStatus("nouveau");
 
