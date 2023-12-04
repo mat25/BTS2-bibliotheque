@@ -33,6 +33,7 @@ class CreerLivre {
             }
             throw new \Exception($messageErreur);
         }
+
         // Vérifier que l'isbn n'existe pas déjà
         $livre = $this->entityManager->getRepository(Livre::class);
         if ($livre->findOneBy(["isbn" => $requete->isbn])<>null) {

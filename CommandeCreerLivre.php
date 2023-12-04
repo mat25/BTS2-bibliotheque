@@ -1,7 +1,7 @@
 <?php
 
 use App\UserStories\CreerLivre\CreerLivre;
-use App\UserStories\CreerLivre\CreerMagazineRequete;
+use App\UserStories\CreerLivre\CreerLivreRequete;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Console\Style\SymfonyStyle;
@@ -21,7 +21,7 @@ $app->command('CreerLivre', function (SymfonyStyle $io ) {
     $isbn = $io->ask("Veuillez saisir l'isbn","");
     $nbPage = $io->ask("Veuillez saisir le nombre de page",0);
 
-    $requete = new CreerMagazineRequete($titre,$isbn,$auteur,$nbPage);
+    $requete = new CreerLivreRequete($titre,$isbn,$auteur,$nbPage);
     $creerLivre = new CreerLivre($entityManager,$validateur);
 
     try {
