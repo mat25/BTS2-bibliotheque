@@ -1,0 +1,70 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.navigation {
+    width: 100%;
+    display: grid;
+    grid-template-columns: auto auto;
+    grid-gap: 10px;
+    align-items: center;
+    justify-content: left;
+    padding-left: 20px;
+
+    height: 50px;
+    background-color: gray;
+}
+
+.navigation a {
+    text-align: center;
+    margin: 5px;
+    padding: 7px 9px;
+    background-color: lightgray;
+    border-radius: 5px;
+
+    text-decoration: none;
+    color: black;
+}
+
+.navigation {
+    text-decoration: none;
+}
+
+.creer-adherent h1 {
+    margin: 15px 50px;
+    color: coral;
+}
+
+.creer-adherent form {
+    margin-left: 40px;
+    width: 200px;
+}
+
+.creer-adherent input {
+    display: block;
+    margin-bottom: 15px;
+    background-color: lightgray;
+    border: none;
+    outline:none;
+    padding: 15px;
+    border-radius: 5px;
+    height: 30px;
+}
+
+form > button[type=submit] {
+    background-color: gray;
+    padding: 5px;
+    color: white;
+    width: 100px;
+    border: none;
+    border-radius: 5px;
+
+    margin-left: 50px;
+}
+
+.erreur {
+    color: red;
+    margin-bottom: 10px;
+}

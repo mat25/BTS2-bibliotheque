@@ -41,34 +41,34 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="../../style.css">
     <title>Creer un adherent</title>
 </head>
 <body>
-    <ul>
-        <li>
-            <a href="../../index.php">Accueil</a>
-        </li>
-        <li>
-            <a href="creer-adherent.php">Creer un adherents</a>
-        </li>
-    </ul>
-    <h1>Creer un adherent</h1>
-    <form action="" method="post">
-        <label for="prenom"">Prenom</label>
-        <input type="text" id="prenom" name="prenom" value="<?= $prenom?>">
+    <div class="navigation">
+        <a href="../../index.php">Accueil</a>
+        <a href="creer-adherent.php">Creer un adherents</a>
+    </div>
 
-        <label for="nom" >Nom</label>
-        <input type="text" id="nom" name="nom" value="<?= $nom?>">
+    <div class="creer-adherent">
+        <h1>Creer un adherent</h1>
+        <form action="" method="post">
+            <label for="prenom"">Prénom</label>
+            <input type="text" id="prenom" name="prenom" value="<?= $prenom?>">
 
-        <label for="email" >Email</label>
-        <input type="text" id="email" name="email" value="<?= $email?>">
+            <label for="nom" >Nom</label>
+            <input type="text" id="nom" name="nom" value="<?= $nom?>">
 
-        <?php
-        if (!empty($erreurs)) {
-            echo $erreurs;
-        }
-        ?>
-        <button type="submit">Ajouter</button>
-    </form>
+            <label for="email" >Email</label>
+            <input type="text" id="email" name="email" value="<?= $email?>">
+
+            <?php
+            if (!empty($erreurs)) { ?>
+                <p class="erreur"><?= $erreurs ?></p>
+            <?php }
+            ?>
+            <button type="submit">Ajouter</button>
+        </form>
+    </div>
 </body>
 </html>

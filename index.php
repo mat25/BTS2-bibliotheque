@@ -5,16 +5,15 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="style.css">
     <title>Bibliotheque</title>
 </head>
 <body>
-    <ul>
-        <li>
-            <a href="index.php">Accueil</a>
-        </li>
-        <li>
+    <div class="navigation">
+        <a href="index.php">Accueil</a>
         <a href="src/vue/creer-adherent.php">Creer un adherents</a>
-        </li>
-    </ul>
+    </div>
+
+
 </body>
 </html>
