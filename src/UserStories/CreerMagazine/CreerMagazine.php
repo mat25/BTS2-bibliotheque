@@ -5,6 +5,7 @@ namespace App\UserStories\CreerMagazine;
 
 
 use App\Entites\Magazine;
+use App\Entites\StatusMedia;
 use Doctrine\ORM\EntityManagerInterface;
 use Exception;
 use Symfony\Component\Validator\Validator\ValidatorInterface;
@@ -62,7 +63,7 @@ class CreerMagazine {
         $magazine->setDatePublication($requete->datePublication);
         $magazine->setDateCreation();
         $magazine->setDureeEmprunt();
-        $magazine->setStatus("nouveau");
+        $magazine->setStatus(StatusMedia::NEW);
 
         $this->entityManager->persist($magazine);
         $this->entityManager->flush();

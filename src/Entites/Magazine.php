@@ -12,8 +12,8 @@ class Magazine extends Media
 {
     #[Column(name: 'numero_magazine',type: 'integer')]
     protected int $numeroMagazine;
-    #[Column(name: 'date_publication', type: 'datetime')]
-    protected \DateTime $datePublication;
+    #[Column(name: 'date_publication', type: 'string')]
+    protected string $datePublication;
 
     public function __construct() {
 
@@ -28,11 +28,11 @@ class Magazine extends Media
     }
 
     /**
-     * @param \DateTime $datePublication
+     * @param string $datePublication
      */
     public function setDatePublication(string $datePublication): void
     {
-        $this->datePublication = \DateTime::createFromFormat("d/m/Y",$datePublication);
+        $this->datePublication = (\DateTime::createFromFormat("d/m/Y",$datePublication))->format("Y-m-d");
     }
 
     public function setDureeEmprunt(): void

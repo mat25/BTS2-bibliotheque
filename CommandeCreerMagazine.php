@@ -17,7 +17,7 @@ $app->command('CreerMagazine', function (SymfonyStyle $io ) {
     $io->title("Création d'un Magazine");
     $numeroMagazine = $io->ask("Veuillez saisir le numéro de magazine",0);
     $titre = $io->ask("Veuillez saisir le titre du Magazine","");
-    $datePublication = $io->ask("Veuillez saisir la date de publication du Magazine","");
+    $datePublication = $io->ask("Veuillez saisir la date de publication du Magazine (jj/mm/AAAA)","");
 
 
     $requete = new CreerMagazineRequete($titre,$numeroMagazine,$datePublication);

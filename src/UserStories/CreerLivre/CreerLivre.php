@@ -4,6 +4,7 @@ namespace App\UserStories\CreerLivre;
 
 use App\Entites\Adherent;
 use App\Entites\Livre;
+use App\Entites\StatusMedia;
 use App\Services\GenerateurNumeroAdherent;
 use Doctrine\ORM\EntityManagerInterface;
 use Exception;
@@ -53,7 +54,7 @@ class CreerLivre {
         $livre->setNbrPage($requete->nbrPages);
         $livre->setDateCreation();
         $livre->setDureeEmprunt();
-        $livre->setStatus("nouveau");
+        $livre->setStatus(StatusMedia::NEW);
 
         $this->entityManager->persist($livre);
         $this->entityManager->flush();
