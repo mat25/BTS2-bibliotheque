@@ -2,10 +2,9 @@
 
 namespace App\UserStories\CreerLivre;
 
-use App\Entites\Adherent;
+
 use App\Entites\Livre;
 use App\Entites\StatusMedia;
-use App\Services\GenerateurNumeroAdherent;
 use Doctrine\ORM\EntityManagerInterface;
 use Exception;
 use Symfony\Component\Validator\Validator\ValidatorInterface;
