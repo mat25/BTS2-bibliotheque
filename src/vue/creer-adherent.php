@@ -1,6 +1,6 @@
 <?php
-require "./../../bootstrap.php";
-require "./../../vendor/autoload.php";
+require "./bootstrap.php";
+require "./vendor/autoload.php";
 
 use App\Services\GenerateurNumeroAdherent;
 use App\UserStories\CreerAdherent\CreerAdherent;
@@ -9,6 +9,10 @@ use Symfony\Component\Validator\Validation;
 $prenom = null;
 $nom = null;
 $email = null;
+
+if(!isset($_SERVER["REQUEST_METHOD"])){
+    $_SERVER['REQUEST_METHOD'] = "GET";
+}
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $requete = new CreerAdherentRequete($_POST["prenom"],$_POST["nom"],$_POST["email"]);

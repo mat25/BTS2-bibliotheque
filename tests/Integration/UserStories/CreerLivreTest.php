@@ -49,7 +49,7 @@ class CreerLivreTest extends TestCase {
     #[test]
     public function creerLivre_ValeursCorrectes_True() {
         // Arrange
-        $requete = new CreerLivreRequete("stick","18754fzjgzu","michel Sardou",150,"15/11/1988");
+        $requete = new CreerLivreRequete("stick","2-7654-1005-4","michel Sardou",150,"15/11/1988");
         $creerLivre = new CreerLivre($this->entityManager,$this->validateur);
 
         // Act
@@ -57,14 +57,14 @@ class CreerLivreTest extends TestCase {
 
         // Assert
         $repository = $this->entityManager->getRepository(Livre::class);
-        $livre = $repository->findOneBy(["isbn" => "18754fzjgzu" ]);
+        $livre = $repository->findOneBy(["isbn" => "2-7654-1005-4" ]);
         $this->assertNotNull($livre);
         $this->assertEquals("michel Sardou",$livre->getAuteur());
     }
     #[test]
     public function creerLivre_TitreIncorrectes_Exception() {
         // Arrange
-        $requete = new CreerLivreRequete("","18754fzjgzu","michel Sardou",150,"15/11/1988");
+        $requete = new CreerLivreRequete("","2-7654-1005-4","michel Sardou",150,"15/11/1988");
         $creerLivre = new CreerLivre($this->entityManager,$this->validateur);
 
         $this->expectException(\Exception::class);
@@ -74,7 +74,7 @@ class CreerLivreTest extends TestCase {
     #[test]
     public function creerLivre_IsbnDejaRenseigner_Exception() {
         // Arrange
-        $requete = new CreerLivreRequete("test","18754fzjgzu","michel Sardou",150,"15/11/1988");
+        $requete = new CreerLivreRequete("test","2-7654-1005-4","michel Sardou",150,"15/11/1988");
         $creerLivre = new CreerLivre($this->entityManager,$this->validateur);
         $creerLivre->execute($requete);
 
@@ -94,7 +94,7 @@ class CreerLivreTest extends TestCase {
     #[test]
     public function creerLivre_auteurIncorrectes_Exception() {
         // Arrange
-        $requete = new CreerLivreRequete("test","18754fzjgzu","",150,"15/11/1988");
+        $requete = new CreerLivreRequete("test","2-7654-1005-4","",150,"15/11/1988");
         $creerLivre = new CreerLivre($this->entityManager,$this->validateur);
 
         $this->expectException(\Exception::class);
@@ -103,7 +103,7 @@ class CreerLivreTest extends TestCase {
     #[test]
     public function creerLivre_nbPagesIncorrectes_Exception() {
         // Arrange
-        $requete = new CreerLivreRequete("test","18754fzjgzu","michel Sardou",0,"15/11/1988");
+        $requete = new CreerLivreRequete("test","2-7654-1005-4","michel Sardou",0,"15/11/1988");
         $creerLivre = new CreerLivre($this->entityManager,$this->validateur);
 
         $this->expectException(\Exception::class);
