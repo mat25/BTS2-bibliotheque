@@ -34,6 +34,9 @@ abstract class Media
 
     }
 
+
+    abstract public function getType();
+
     /**
      * @param string $titre
      */
@@ -49,6 +52,15 @@ abstract class Media
     {
         $this->status = $status;
     }
+
+    /**
+     * @return int
+     */
+    public function getId(): int
+    {
+        return $this->id;
+    }
+
 
     /**
      * @param \DateTime $dateCreation
@@ -84,9 +96,9 @@ abstract class Media
     /**
      * @return \DateTime
      */
-    public function getDateCreation(): \DateTime
+    public function getDateCreation(): string
     {
-        return $this->dateCreation;
+        return $this->dateCreation->format("d/m/Y");
     }
 
     /**
@@ -96,6 +108,7 @@ abstract class Media
     {
         return $this->dureeEmprunt;
     }
+
 
 
 

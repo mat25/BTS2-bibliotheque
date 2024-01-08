@@ -2,14 +2,33 @@
 
 namespace App\Entites;
 
+use Doctrine\ORM\Mapping\Column;
+use Doctrine\ORM\Mapping\Entity;
+use Doctrine\ORM\Mapping\GeneratedValue;
+use Doctrine\ORM\Mapping\Id;
+use Doctrine\ORM\Mapping\JoinColumn;
+use Doctrine\ORM\Mapping\ManyToOne;
+use Doctrine\ORM\Mapping\OneToOne;
+
+#[Entity]
 class Emprunt
 {
+    #[Id]
+    #[Column(name: 'id_emprunt',type: 'integer')]
+    #[GeneratedValue]
     protected int $id;
+    #[Column(type: 'datetime')]
     private \DateTime $dateEmprunt;
+    #[Column(type: 'datetime')]
     private \DateTime $dateRetourEstime;
+    #[Column(type: 'datetime',nullable: True)]
 
     private ?\DateTime $dateRetour ;
+    #[ManyToOne(targetEntity: Adherent::class)]
+    #[JoinColumn(name: 'id_adherent', referencedColumnName: 'id_adherent')]
     private Adherent $adherent;
+    #[OneToOne(targetEntity: Media::class)]
+    #[JoinColumn(name: 'id_media', referencedColumnName: 'id_media')]
     private Media $media;
 
     public function __construct()
@@ -33,9 +52,9 @@ class Emprunt
     /**
      * @param \DateTime $dateEmprunt
      */
-    public function setDateEmprunt(\DateTime $dateEmprunt): void
+    public function setDateEmprunt(): void
     {
-        $this->dateEmprunt = $dateEmprunt;
+        $this->dateEmprunt = new \DateTime();
     }
 
     /**
@@ -65,9 +84,9 @@ class Emprunt
     /**
      * @param \DateTime $dateRetourEstime
      */
-    public function setDateRetourEstime(\DateTime $dateRetourEstime): void
+    public function setDateRetourEstime(): void
     {
-        $this->dateRetourEstime = $dateRetourEstime;
+        $this->dateRetourEstime = (new \DateTime())->modify("+".$this->media->getDureeEmprunt()." days");
     }
 
 

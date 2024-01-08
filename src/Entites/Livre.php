@@ -73,5 +73,10 @@ class Livre extends Media
         return $this->nbrPage;
     }
 
+    public function getType()
+    {
+        return "livre";
+    }
+
 }
 

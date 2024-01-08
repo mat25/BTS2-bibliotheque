@@ -1,22 +1,30 @@
 <?php
 
-namespace App\UserStorie\ListerNouveauxMedia;
+namespace App\UserStories\ListerNouveauxMedia;
 
 require "./vendor/autoload.php";
 
+
 use App\Entites\Media;
 use App\Entites\StatusMedia;
-use App\Modele\Modele_Media;
 use Doctrine\ORM\EntityManagerInterface;
 
 class ListerNouveauxMedia
 {
+    private EntityManagerInterface $entityManager;
+    public function __construct(EntityManagerInterface $entityManager)
+    {
+        $this->entityManager = $entityManager;
+    }
 
-    public function execute() :  Media {
+    public function execute() :  array {
+        $repository = $this->entityManager->getRepository(Media::class);
+        $mediaRepository = $repository->findBy(["status" => StatusMedia::NEW], ["dateCreation" => "DESC"]);
+        $medias = [];
+        foreach($mediaRepository as $media){
+            $medias[] = ["id" => $media->getId(), "titre" => $media->getTitre(), "status" => $media->getStatus(), "dateCreation" => $media->getDateCreation(), "type" => $media->getType()];
+        }
 
-        // Lister les nouveaux Média
-        $modeleMedia = new Modele_Media($entityManager);
-        $medias = $modeleMedia->ListerMediaParStatus(StatusMedia::NEW);
         return $medias;
     }
 }

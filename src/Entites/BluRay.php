@@ -23,4 +23,9 @@ class BluRay extends Media
     {
         $this->dureeEmprunt = 15;
     }
+
+    public function getType()
+    {
+        return "bluray";
+    }
 }
