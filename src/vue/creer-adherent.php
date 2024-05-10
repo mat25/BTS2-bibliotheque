@@ -1,9 +1,9 @@
 <?php
-require "../../bootstrap.php";
-require "../../vendor/autoload.php";
+//require "../../bootstrap.php";
+//require "../../vendor/autoload.php";
 
 use App\Services\GenerateurNumeroAdherent;
-use App\UserStories\CreerAdherent\CreerAdherent;;
+use App\UserStories\CreerAdherent\CreerAdherent;
 use App\UserStories\CreerAdherent\CreerAdherentRequete;
 use Symfony\Component\Validator\Validation;
 $prenom = null;

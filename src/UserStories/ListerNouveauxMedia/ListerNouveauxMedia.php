@@ -19,11 +19,13 @@ class ListerNouveauxMedia
 
     public function execute() :  array {
         $repository = $this->entityManager->getRepository(Media::class);
-        $mediaRepository = $repository->findBy(["status" => StatusMedia::NEW], ["dateCreation" => "DESC"]);
+        $mediaRepository = $repository->findBy(["status" => StatusMedia::NEW]);
         $medias = [];
         foreach($mediaRepository as $media){
             $medias[] = ["id" => $media->getId(), "titre" => $media->getTitre(), "status" => $media->getStatus(), "dateCreation" => $media->getDateCreation(), "type" => $media->getType()];
         }
+
+        arsort($medias);
 
         return $medias;
     }

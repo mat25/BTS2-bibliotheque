@@ -1,0 +1,14 @@
+@startuml
+skinparam actorStyle awesome
+:Bibliothécaire: as Bibli
+
+skinparam padding 10
+
+
+
+Bibli --> (Créer un adhérent)
+Bibli -right-> (Créer un média)
+Bibli -down-> (Lister les nouveaux médias)
+Bibli -up-> (Rendre disponible un média)
+Bibli -left-> (Emprunter un média)
+@enduml

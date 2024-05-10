@@ -19,8 +19,13 @@ $app->command('RendreDisponibleUnMedia', function (SymfonyStyle $io) {
     $io->title("Rendre un nouveau média disponible");
     $id = $io->ask("Quel est l'id du média à modifier ?");
     $requete = new RendreDisponibleUnMediaRequete($id);
+<<<<<<< HEAD
     $validateur = (new ValidatorBuilder())->enableAnnotationMapping()->getValidator();
     $rendreDisponible = new RendreDisponibleUnMedia($entityManager,$validateur);
+=======
+    $validator = (new ValidatorBuilder())->enableAnnotationMapping()->getValidator();
+    $rendreDisponible = new RendreDisponibleUnMedia($entityManager,$validator);
+>>>>>>> 6d48607 (test)
 
     try{
         $rendreDisponible->execute($requete);

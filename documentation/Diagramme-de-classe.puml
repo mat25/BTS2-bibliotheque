@@ -38,7 +38,7 @@ class Magazine {
 }
 
 Adherent"1..1" <-- "0..*"Emprunt :< Est Réaliser
-Emprunt --> "1..1"Media :> Correspond
+Emprunt"0..*" --> "1..1"Media :> Correspond
 Livre --|> Media
 bluRay --|> Media
 Magazine --|> Media

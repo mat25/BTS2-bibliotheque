@@ -98,7 +98,7 @@ abstract class Media
      */
     public function getDateCreation(): string
     {
-        return $this->dateCreation->format("d/m/Y");
+        return $this->dateCreation->format("d/m/y");
     }
 
     /**

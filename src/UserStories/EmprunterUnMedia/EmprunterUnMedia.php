@@ -62,7 +62,6 @@ class EmprunterUnMedia {
         // Recherche le Media
         $repository = $this->entityManager->getRepository(Media::class);
         $mediaRepository = $repository->findOneBy(["id" => $requete->id]);
-        $mediaRepository->setStatus(StatusMedia::EMPRUNTE);
 
         // Recherche l'adherent
         $repository = $this->entityManager->getRepository(Adherent::class);

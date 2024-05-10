@@ -16,7 +16,11 @@ $app->command('ListerNouveauxMedia', function (SymfonyStyle $io ) {
     $medias = $listerMedia->execute();
     $table = $io->createTable();
     $table->setHeaderTitle("Liste des nouveaux médias");
+<<<<<<< HEAD
     $table->setHeaders(['id', 'titre', 'status', 'date de création', 'type']);
+=======
+    $table->setHeaders(['id', 'titre', 'statut', 'dateCreation', 'type']);
+>>>>>>> 6d48607 (test)
     $table->setRows($medias);
     $table->render();
 });
