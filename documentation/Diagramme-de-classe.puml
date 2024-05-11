@@ -37,7 +37,7 @@ class Magazine {
 # datePublication : DateTime
 }
 
-Adherent"1..1" <-- "0..*"Emprunt :< Est Réaliser
+Adherent"1..1" <-- "0..*"Emprunt :< Est réalisé
 Emprunt"0..*" --> "1..1"Media :> Correspond
 Livre --|> Media
 bluRay --|> Media

@@ -27,7 +27,7 @@ $app->command('EmprunterUnMedia', function (SymfonyStyle $io ) {
 
     try {
         $empruntMedia->execute($requete);
-        $io->writeln("L'emprunt a bien été créer !");
+        $io->writeln("L'emprunt a bien été créé !");
     } catch (\Exception $e) {
         $io->error($e->getMessage());
     }
