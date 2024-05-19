@@ -32,7 +32,15 @@
     text-decoration: none;
 }
 
+.creer-adherent {
+    display: flex;
+
+    align-items: center;
+    flex-direction: column;
+}
+
 .creer-adherent h1 {
+    display: block;
     margin: 15px 50px;
     color: coral;
 }
